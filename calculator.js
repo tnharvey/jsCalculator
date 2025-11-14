@@ -1,6 +1,8 @@
 // TODO: PLEASE refactor, this is such a mess. Yes it works, but ouch!
 // start with following the guidelines more closely, using simply operation calls
 // and running total. Much simpler that way
+// I did update the keyboard event handling to include all number keys and basic operations
+// Still needs scientific notation when exceeding display limits
 
 let operationHistory = [];
 let operationString = "";
@@ -239,3 +241,60 @@ document.getElementById("equalsButton").addEventListener("click",function () {
   clearHistory();
 });
 document.getElementById("decimalButton").addEventListener("click",decimalCheck);
+document.addEventListener('keydown', function(event) {
+  if (event.key === "1") {
+    updateCurrentNumber('1');
+  }
+  if (event.key === "2") {
+    updateCurrentNumber('2');
+  }
+  if (event.key === "3") {
+    updateCurrentNumber('3');
+  }
+  if (event.key === "4") {
+    updateCurrentNumber('4');
+  }
+  if (event.key === "5") {
+    updateCurrentNumber('5');
+  }
+  if (event.key === "6") {
+    updateCurrentNumber('6');
+  }
+  if (event.key === "7") {
+    updateCurrentNumber('7');
+  }
+  if (event.key === "8") {
+    updateCurrentNumber('8');
+  }
+  if (event.key === "9") {
+    updateCurrentNumber('9');
+  }
+  if (event.key === "0") {
+    updateCurrentNumber('0');
+  }
+  if (event.key === "+") {
+    addOperation('+');
+  }
+  if (event.key === "-") {
+    addOperation('-');
+  }
+  if (event.key === "*") {
+    addOperation('*');
+  }
+  if (event.key === "/") {
+    addOperation('/');
+  }
+  if (event.key === "Enter") {
+    operate();
+    clearHistory();
+  }
+  if (event.key === ".") {
+    decimalCheck();
+  }
+  if (event.key === "Escape") {
+    clearAll();
+  }
+  if (event.key === "Delete" || event.key === "Backspace") {
+    backspace();
+  }
+  });
